@@ -21,5 +21,32 @@ namespace ShoppingList
         {
 
         }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            txtItem.Text = txtItem.Text.ToUpper();
+            if (txtItem.TextLength == 0 || txtItem.Text.Equals(" "))
+            {
+                MessageBox.Show("You cannot add empty element!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (shoppingCheckedList.Items.Contains(txtItem.Text))
+            {
+                MessageBox.Show("You cannot add the same product!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                shoppingCheckedList.Items.Add(txtItem.Text);
+            }
+            txtItem.Clear();
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            DialogResult message = MessageBox.Show("Do You want delete all items?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (message == DialogResult.Yes)
+            {
+                shoppingCheckedList.Items.Clear();
+            }
+        }
     }
 }

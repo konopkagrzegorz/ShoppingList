@@ -35,12 +35,13 @@
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnEndShoppingList = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtItem = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // shoppingCheckedList
             // 
             resources.ApplyResources(this.shoppingCheckedList, "shoppingCheckedList");
+            this.shoppingCheckedList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.shoppingCheckedList.FormattingEnabled = true;
             this.shoppingCheckedList.Name = "shoppingCheckedList";
             // 
@@ -55,6 +56,7 @@
             resources.ApplyResources(this.btnAddProduct, "btnAddProduct");
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnDeleteProduct
             // 
@@ -69,6 +71,7 @@
             resources.ApplyResources(this.btnClearAll, "btnClearAll");
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.UseVisualStyleBackColor = false;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // btnEndShoppingList
             // 
@@ -77,16 +80,16 @@
             this.btnEndShoppingList.Name = "btnEndShoppingList";
             this.btnEndShoppingList.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtItem
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.txtItem, "txtItem");
+            this.txtItem.Name = "txtItem";
             // 
             // ShoppingListForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtItem);
             this.Controls.Add(this.btnEndShoppingList);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnDeleteProduct);
@@ -108,7 +111,7 @@
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnEndShoppingList;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtItem;
     }
 }
 
