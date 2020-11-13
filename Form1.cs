@@ -12,6 +12,9 @@ namespace ShoppingList
 {
     public partial class ShoppingListForm : Form
     {
+
+        private Boolean btnEndShoppingListStatus = false;
+
         public ShoppingListForm()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace ShoppingList
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+
             txtItem.Text = txtItem.Text.ToUpper();
             if (txtItem.TextLength == 0 || txtItem.Text.Equals(" "))
             {
@@ -47,6 +51,57 @@ namespace ShoppingList
             {
                 shoppingCheckedList.Items.Clear();
             }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            if (shoppingCheckedList.SelectedIndex == -1)
+            {
+                MessageBox.Show("Nothing to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else
+            {
+                shoppingCheckedList.Items.RemoveAt(shoppingCheckedList.SelectedIndex);
+            }
+        }
+
+        private void btnEndShoppingList_Click(object sender, EventArgs e)
+        {
+            btnAddProduct.Enabled = false;
+            btnClearAll.Enabled = false;
+            btnDeleteProduct.Enabled = false;
+
+            btnEndShoppingListStatus = true;
+        }
+
+        private void shoppingProgressBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void shoppingCheckedList_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int checkedItems = shoppingCheckedList.CheckedItems.Count;
+            int items = shoppingCheckedList.Items.Count;
+            if (btnEndShoppingListStatus == false)
+            {
+                MessageBox.Show("You need to close Shopping list first", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                for (int i = 0; i < shoppingCheckedList.Items.Count; i++)
+                {
+                   shoppingCheckedList.SetItemChecked(i,false);
+                }
+            } else
+            {
+                if (shoppingProgressBar.Value == 100)
+                {
+                    MessageBox.Show("You finished Your list", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else
+                {
+                    shoppingProgressBar.Value = (checkedItems * 100)/items;
+                }
+            }
+
+
         }
     }
 }

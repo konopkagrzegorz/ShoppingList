@@ -44,6 +44,7 @@
             this.shoppingCheckedList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.shoppingCheckedList.FormattingEnabled = true;
             this.shoppingCheckedList.Name = "shoppingCheckedList";
+            this.shoppingCheckedList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.shoppingCheckedList_ItemCheck);
             // 
             // shoppingProgressBar
             // 
@@ -64,6 +65,7 @@
             resources.ApplyResources(this.btnDeleteProduct, "btnDeleteProduct");
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // btnClearAll
             // 
@@ -79,6 +81,7 @@
             resources.ApplyResources(this.btnEndShoppingList, "btnEndShoppingList");
             this.btnEndShoppingList.Name = "btnEndShoppingList";
             this.btnEndShoppingList.UseVisualStyleBackColor = false;
+            this.btnEndShoppingList.Click += new System.EventHandler(this.btnEndShoppingList_Click);
             // 
             // txtItem
             // 
@@ -96,6 +99,8 @@
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.shoppingProgressBar);
             this.Controls.Add(this.shoppingCheckedList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ShoppingListForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
