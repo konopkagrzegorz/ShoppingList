@@ -12,19 +12,19 @@ Application allows to add, delete, clear and check status of shopping list due t
 
 - Add product
 
-![]()
+![](https://github.com/konopkagrzegorz/ShoppingList/blob/master/gifs/shopping_app_add_product.gif)
 
 - Delete product
 
-![]()
+![](https://github.com/konopkagrzegorz/ShoppingList/blob/master/gifs/shopping_app_delete_product.gif)
 
 - Clear all products
 
-![]()
+![](https://github.com/konopkagrzegorz/ShoppingList/blob/master/gifs/shopping_app_delete_all.gif)
 
 - Collecting items
 
-![]()
+![](https://github.com/konopkagrzegorz/ShoppingList/blob/master/gifs/shopping_app_progress_bar.gif)
 
 ## Authors
 
