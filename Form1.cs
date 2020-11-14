@@ -58,7 +58,8 @@ namespace ShoppingList
             if (shoppingCheckedList.SelectedIndex == -1)
             {
                 MessageBox.Show("Nothing to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else
+            }
+            else
             {
                 shoppingCheckedList.Items.RemoveAt(shoppingCheckedList.SelectedIndex);
             }
@@ -73,35 +74,26 @@ namespace ShoppingList
             btnEndShoppingListStatus = true;
         }
 
-        private void shoppingProgressBar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void shoppingCheckedList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            int checkedItems = shoppingCheckedList.CheckedItems.Count;
+            int checkedItems = shoppingCheckedList.CheckedItems.Count + 1;
             int items = shoppingCheckedList.Items.Count;
             if (btnEndShoppingListStatus == false)
             {
                 MessageBox.Show("You need to close Shopping list first", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                for (int i = 0; i < shoppingCheckedList.Items.Count; i++)
-                {
-                   shoppingCheckedList.SetItemChecked(i,false);
-                }
-            } else
+            }
+            else
             {
+                shoppingProgressBar.Value = (checkedItems * 100) / items;
                 if (shoppingProgressBar.Value == 100)
                 {
-                    MessageBox.Show("You finished Your list", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } else
-                {
-                    shoppingProgressBar.Value = (checkedItems * 100)/items;
+                    DialogResult dialog = MessageBox.Show("You collected all items! I am going to close", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (dialog == DialogResult.OK)
+                    {
+                        Application.Exit();
+                    }
                 }
             }
-
-
         }
     }
 }
